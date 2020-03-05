@@ -6,14 +6,16 @@ function TodayWeather({ data, units }) {
         <div className="today__container">
             <Card className="text-center today__card">
                 <Card.Body>
-                    <Card.Title>Weather for {data.name}</Card.Title>
-                    <Card.Subtitle className="d-inline mr-3 font-weight-bold">
+                    <Card.Title className="today__card--title">
+                        Weather for {data.name}
+                    </Card.Title>
+                    <Card.Subtitle className="d-inline mr-3 font-weight-bold today__card--subtitle">
                         {data.main.temp}&deg;{units}
                     </Card.Subtitle>
                     <Card.Img
                         src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}
                         alt="Current Conditions"
-                        style={{ width: "4rem", margin: "0 auto" }}
+                        style={{ width: "4rem" }}
                         className="d-inline"
                     />
                     <Card.Text className="text-muted">

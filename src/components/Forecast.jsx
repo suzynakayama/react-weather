@@ -33,13 +33,12 @@ class Forecast extends Component {
             hour.icon = item.weather[0].icon;
             return allDays.push(hour);
         });
-        console.table(allDays);
         this.splitIntoDays(allDays, 8);
     }
 
     render() {
         return (
-            <div className="d-flex justify-content-around align-items-center">
+            <div className="d-flex justify-content-around flex-wrap forecast__div">
                 {this.state.days.map((day, idx) => {
                     return (
                         <ForecastCard

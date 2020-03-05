@@ -1,3 +1,10 @@
+.app-title {
+    font-size: 4rem;
+    background: linear-gradient(#fcf800, #dd0000);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .btn-container {
     width: 100%;
     padding-right: 30%;
@@ -7,7 +14,7 @@
 }
 
 .units-btn {
-    box-shadow: 0.125rem 0.125rem 0.25rem #bbb;
+    box-shadow: var(--bs-sml);
 }
 
 .today__container {
@@ -20,6 +27,103 @@
 
 .today__card {
     width: 18rem;
-    box-shadow: 0.25rem 0.25rem 0.75rem #aaa, 0.125rem 0.125rem 0.25rem #bbb;
-    background-color: #f1af4bd2;
+    box-shadow: var(--bs-med);
+    background-color: var(--clr-accent);
+}
+
+.forecast__div {
+    overflow: visible;
+    max-height: 250px;
+}
+
+.forecast__accordion,
+.forecast__card {
+    border: 1px solid var(--clr-accent);
+    border-radius: 5px;
+    box-shadow: var(--bs-med);
+    background-color: var(--clr-accent);
+}
+
+.forecast__accordion--title,
+.today__card--title {
+    font-size: 1.5rem;
+}
+
+.forecast__accordion--subtitle,
+.today__card--subtitle {
+    font-size: 1.1rem;
+}
+
+.forecast__accordion--btn {
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    background-color: var(--clr-light);
+    color: var(--clr-accent);
+    font-size: 0.8rem;
+}
+
+.forecast__accordion--btn:hover {
+    text-decoration: none;
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    border: 1px solid lightgray;
+    transform: scale(1.1);
+}
+
+.forecast__accordion--btn:focus {
+    text-decoration: none;
+}
+
+.forecast__accordion--body {
+    padding: 0;
+}
+
+.hour__container,
+.hour__card {
+    padding: 0;
+}
+
+.hour__card--body {
+    padding: 10px;
+}
+
+.hour__card--title {
+    font-size: 1.1rem;
+}
+
+.hour__card--subtitle {
+    font-size: 1rem;
+}
+
+.hour__card--text {
+    font-size: 0.8rem;
+}
+
+/* Footer */
+@import url("https://fonts.googleapis.com/css?family=Charm:400,700&display=swap");
+
+.footer {
+    position: absolute;
+    top: 10px;
+    right: 5rem;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: "Charm", cursive;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--clr-accent);
+    font-weight: bold;
+}
+
+.footer span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.git-icon {
+    font-size: 1.5em;
 }

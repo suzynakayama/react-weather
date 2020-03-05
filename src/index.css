@@ -10,3 +10,12 @@ body {
     margin: 2rem;
     font-family: "Roboto", sans-serif;
 }
+
+:root {
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-accent: #f1af4bd2;
+
+    --bs-sml: 0.125rem 0.125rem 0.25rem #bbb;
+    --bs-med: 0.25rem 0.25rem 0.75rem #aaa, 0.125rem 0.125rem 0.25rem #bbb;
+}
