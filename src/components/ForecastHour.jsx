@@ -9,17 +9,17 @@ function ForecastHour({ data, units }) {
                     <Card.Title className="hour__card--title">
                         {data.hour}
                     </Card.Title>
-                    <Card.Subtitle className="d-inline mr-1 font-weight-bold hour__card--subtitle">
+                    <Card.Subtitle className=" mt-3 font-weight-bold hour__card--subtitle">
                         {data.temp}&deg;{units}
                     </Card.Subtitle>
                     <Card.Img
                         src={`https://openweathermap.org/img/w/${data.icon}.png`}
                         alt="Current Conditions"
                         style={{ width: "2rem" }}
-                        className="d-inline mb-3"
+                        className="mt-2 mb-3"
                     />
                     <Card.Text className="text-muted hour__card--text">
-                        Feels like: {data.feels}
+                        Feels: {data.feels}
                     </Card.Text>
                     <Card.Text className="text-muted hour__card--text">
                         Humidity: {data.humidity}%
