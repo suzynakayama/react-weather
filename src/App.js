@@ -39,23 +39,41 @@ class App extends Component {
                 unit
             );
             forecast = await getForecast(this.state.lat, this.state.lng, unit);
+            console.log(weather);
+            console.log(forecast);
         };
         if (this.state.units === "metric") {
-            getData("imperial");
-            this.setState({
-                ...this.state,
-                weatherData: weather,
-                forecast: forecast,
-                units: "imperial"
-            });
+            const reRender = () => {
+                return new Promise(resolve => {
+                    resolve(getData("imperial"));
+                }).then(res => {
+                    console.log(weather);
+                    console.log(forecast);
+                    this.setState({
+                        ...this.state,
+                        weatherData: weather,
+                        forecast: forecast,
+                        units: "imperial"
+                    });
+                });
+            };
+            reRender();
         } else {
-            getData("metric");
-            this.setState({
-                ...this.state,
-                weatherData: weather,
-                forecast: forecast,
-                units: "metric"
-            });
+            const reRender = () => {
+                return new Promise(resolve => {
+                    resolve(getData("metric"));
+                }).then(res => {
+                    console.log(weather);
+                    console.log(forecast);
+                    this.setState({
+                        ...this.state,
+                        weatherData: weather,
+                        forecast: forecast,
+                        units: "metric"
+                    });
+                });
+            };
+            reRender();
         }
     };
 

@@ -17,6 +17,7 @@
     box-shadow: var(--bs-sml);
 }
 
+/* Today */
 .today__container {
     display: flex;
     justify-content: center;
@@ -31,6 +32,7 @@
     background-color: var(--clr-accent);
 }
 
+/* Forecast */
 .forecast__div {
     overflow: visible;
     max-height: 250px;

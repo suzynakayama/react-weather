@@ -11,7 +11,7 @@ function Footer() {
                 >
                     <span>Developed by</span>
                     &nbsp;Suzy Yume&nbsp;
-                    <i class="devicon-github-plain git-icon"></i>
+                    <i className="devicon-github-plain git-icon"></i>
                 </a>
             </p>
         </div>
