@@ -55,7 +55,6 @@ class Forecast extends Component {
         return (
             <div className="d-flex justify-content-around flex-wrap forecast__div">
                 {this.state.days.map((day, idx) => {
-                    console.log(this.state.days);
                     return (
                         <ForecastCard
                             key={idx}
