@@ -40,7 +40,7 @@ function ForecastCard(props) {
     }, [props.data]);
 
     return state.state.data ? (
-        <div className="col-sm-2">
+        <div className="col-sm-2 forecast__card--container">
             <Accordion className="forecast__accordion">
                 <Card className="forecast__card">
                     <Card.Header className="text-center">

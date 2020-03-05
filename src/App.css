@@ -129,3 +129,22 @@
 .git-icon {
     font-size: 1.5em;
 }
+
+@media (max-width: 1468px) {
+    .hour__container {
+        display: block;
+        min-width: 95%;
+    }
+}
+@media (max-width: 1275px) {
+    .forecast__card--container {
+        min-width: 30%;
+        margin: 1.5em;
+    }
+}
+@media (max-width: 850px) {
+    .forecast__card--container {
+        min-width: 85%;
+        margin: 1.5em;
+    }
+}
