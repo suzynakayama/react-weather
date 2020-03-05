@@ -14,8 +14,7 @@ class App extends Component {
         lng: null,
         weatherData: null,
         forecast: null,
-        units: "metric",
-        reRender: false
+        units: "metric"
     };
 
     async componentDidMount() {
