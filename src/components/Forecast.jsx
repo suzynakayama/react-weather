@@ -1,71 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ForecastCard from "./ForecastCard";
+import Spinner from "react-bootstrap/Spinner";
 
-class Forecast extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            days: []
-        };
-    }
+function Forecast(props) {
+    const [days, setDays] = useState(null);
 
-    splitIntoDays = (arr, num) => {
+    const splitIntoDays = (arr, num) => {
         let newArr = [];
         while (arr.length) {
             newArr.push(arr.splice(0, num));
         }
-        this.setState({
+        setDays({
             days: newArr
         });
     };
 
-    // async componentWillReceiveProps(nextProps) {
-    //     let data = nextProps.forecast.list;
-    //     let allDays = [];
-    //     await data.map(item => {
-    //         let hour = {};
-    //         hour.hour = item.dt_txt.slice(11, 16);
-    //         hour.temp = item.main.temp;
-    //         hour.feels = item.main.feels_like;
-    //         hour.humidity = item.main.humidity;
-    //         hour.day = item.dt_txt.slice(0, 10);
-    //         hour.icon = item.weather[0].icon;
-    //         return allDays.push(hour);
-    //     });
-    //     this.splitIntoDays(allDays, 8);
-    // }
-
-    async componentDidMount() {
-        let data = this.props.forecast.list;
+    useEffect(() => {
+        let data = props.forecast.list;
         let allDays = [];
-        await data.map(item => {
-            let hour = {};
-            hour.hour = item.dt_txt.slice(11, 16);
-            hour.temp = item.main.temp;
-            hour.feels = item.main.feels_like;
-            hour.humidity = item.main.humidity;
-            hour.day = item.dt_txt.slice(0, 10);
-            hour.icon = item.weather[0].icon;
-            return allDays.push(hour);
-        });
-        this.splitIntoDays(allDays, 8);
-    }
+        const getDays = async () => {
+            await data.map(item => {
+                let hour = {};
+                hour.hour = item.dt_txt.slice(11, 16);
+                hour.temp = item.main.temp;
+                hour.feels = item.main.feels_like;
+                hour.humidity = item.main.humidity;
+                hour.day = item.dt_txt.slice(0, 10);
+                hour.icon = item.weather[0].icon;
+                return allDays.push(hour);
+            });
+            splitIntoDays(allDays, 8);
+        };
+        getDays();
+    }, [props.forecast.list]);
 
-    render() {
-        return (
-            <div className="d-flex justify-content-around flex-wrap forecast__div">
-                {this.state.days.map((day, idx) => {
-                    return (
-                        <ForecastCard
-                            key={idx}
-                            data={day}
-                            units={this.props.units}
-                        />
-                    );
-                })}
-            </div>
-        );
-    }
+    return days ? (
+        <div className="d-flex justify-content-around flex-wrap forecast__div">
+            {days.days.map((day, idx) => {
+                return (
+                    <ForecastCard key={idx} data={day} units={props.units} />
+                );
+            })}
+        </div>
+    ) : (
+        <h2 className="text-center mt-5">
+            <Spinner animation="border" variant="warning" /> Loading...
+        </h2>
+    );
 }
 
 export default Forecast;

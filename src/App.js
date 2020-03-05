@@ -14,7 +14,8 @@ class App extends Component {
         lng: null,
         weatherData: null,
         forecast: null,
-        units: "metric"
+        units: "metric",
+        reRender: false
     };
 
     async componentDidMount() {
@@ -52,9 +53,9 @@ class App extends Component {
     handleUnits = async () => {
         try {
             if (this.state.units === "metric") {
-                this.handleUpdate("imperial");
+                await this.handleUpdate("imperial");
             } else {
-                this.handleUpdate("metric");
+                await this.handleUpdate("metric");
             }
         } catch (err) {
             console.log(err);
