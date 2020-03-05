@@ -1,3 +1,7 @@
+Please accept geolocation to check the app working.
+
+Live [here](https://suzynakayama.github.io/react-weather/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
