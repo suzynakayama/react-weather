@@ -36,7 +36,9 @@ function ForecastCard(props) {
 
     useEffect(() => {
         let data = props.data;
-        getAverage(data);
+        if (data !== undefined) {
+            getAverage(data);
+        }
     }, [props.data]);
 
     return state.state.data ? (

@@ -5,13 +5,21 @@ import Spinner from "react-bootstrap/Spinner";
 function Forecast(props) {
     const [days, setDays] = useState(null);
 
-    const splitIntoDays = (arr, num) => {
-        let newArr = [];
-        while (arr.length) {
-            newArr.push(arr.splice(0, num));
-        }
+    const splitIntoDays = arr => {
+        const groupByDay = (objectArray, property) => {
+            return objectArray.reduce((acc, obj) => {
+                let key = obj[property];
+                if (!acc[key]) {
+                    acc[key] = [];
+                }
+                acc[key].push(obj);
+                return acc;
+            }, {});
+        };
+        let dayMap = groupByDay(arr, "day");
+        let daysArr = Object.keys(dayMap).map(k => dayMap[k]);
         setDays({
-            days: newArr
+            days: daysArr
         });
     };
 
@@ -29,7 +37,7 @@ function Forecast(props) {
                 hour.icon = item.weather[0].icon;
                 return allDays.push(hour);
             });
-            splitIntoDays(allDays, 8);
+            splitIntoDays(allDays);
         };
         getDays();
     }, [props.forecast.list]);
